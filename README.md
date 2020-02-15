@@ -51,7 +51,7 @@ raster::rasterToPoints(test) | 4.927814 | 12.77142 | 12.00122 | 12.78671 | 12.79
 
 ## Summary
 
-Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to 4x were found, with revisions remaining pure R based and not offloading any computation onto a faster C language. 
+Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to ~3x were found, with revisions remaining pure R based and not offloading any computation onto a faster C language. 
 
 ## Further information
 
