@@ -53,4 +53,6 @@ raster::rasterToPoints(test) | 4.927814 | 12.77142 | 12.00122 | 12.78671 | 12.79
 
 Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to 4x were found, with revisions remaining pure R based and not offloading any computation onto a faster C language. Perhaps more interesting is the fact that most geospatial data manipulation and analyses are 'embarrasingly parallel'. Shifting much of the computation to a parallel framework such as OpenMP in C++ could result in further time reductions. 
 
+## Further information
 
+Please note that the methods included in this repo are S3 functions and only support single raster layers. The S4 methods found in the `raster` package are still the best choice for handling more complex raster objects. 
