@@ -15,10 +15,10 @@ library(raster)
 DTM <- raster("DTM.tif")
 
 # rgeo 
-microbenchmark::microbenchmark(classify(test, at = c(2,5)), times = 100L) 
+microbenchmark::microbenchmark(classify(test, at = c(2,5)), times = 10L) 
 
 # raster package
-microbenchmark::microbenchmark(raster::cut(test, breaks = c(-10.08, 2, 5, 126.170)), times = 100L)
+microbenchmark::microbenchmark(raster::cut(test, breaks = c(-10.08, 2, 5, 126.170)), times = 10L)
 ```
 
 *Unit: seconds*
