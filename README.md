@@ -43,13 +43,14 @@ microbenchmark::microbenchmark(extract_xyz(test), times = 10L)
 microbenchmark::microbenchmark(raster::rasterToPoints(test), times = 10L)
 ```
 *Unit: seconds*
+
 expr | min | lq | mean | median | uq | max | neval
 --- | --- | --- | --- | --- | --- | --- | ---
-extract_xyz(test) | 12.76367 | 12.78892 | 12.90007 | 12.84624 | 12.92806 | 13.41824 | 10
-raster::rasterToPoints(test) | 
+extract_xyz(test) | 3.976426 | 4.1043 | 4.095051 | 4.106489 | 4.110322 | 4.116398 | 10
+raster::rasterToPoints(test) | 4.927814 | 12.77142 | 12.00122 | 12.78671 | 12.79453 | 12.80327 | 10
 
+## Summary
 
-
-
+Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to 4x were found, with revisions remaining pure R based and not offloading any computation onto a faster C language. Perhaps more interesting is the fact that most geospatial data manipulation and analyses are 'embarrasingly parallel'. Shifting much of the computation to a parallel framework such as OpenMP in C++ could result in further time reductions. 
 
 
