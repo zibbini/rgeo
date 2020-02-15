@@ -1,5 +1,19 @@
 extract_xyz_at_row <- function(raster, startRow, rowNum) {
   
+  #' Convert a raster layer to xyz format
+  #' 
+  #' @description A faster implementation of the rasterToPoints() function in the raster package for doing the same task.
+  #' 
+  #' @param raster The raster layer to convert.
+  #' @param startRow The initial row to start conversion from.
+  #' @param rowNum The number of rows to convert to xyz from the initial row.
+  #' 
+  #' @usage extract_xyz_at_row(raster, startRow, rowNum)
+  #' 
+  #' @details Note that this function only supports single raster layer objects. 
+  #' Support for more complex raster objects will be added in due course.
+  #' 
+  
   xmin <- raster@extent@xmin
   ymin <- raster@extent@ymin
   ymax <- raster@extent@ymax
@@ -13,9 +27,9 @@ extract_xyz_at_row <- function(raster, startRow, rowNum) {
   
   if (requireNamespace("raster", quietly = TRUE)) {
     
-    xyz <- na.omit(data.frame(x = rep.int(x = x, times = rowNum),
+    xyz <- data.frame(x = rep.int(x = x, times = rowNum),
                       y = rep(x = y, each = ncols), 
-                      z = raster::getValues(raster, row = startRow, nrow = rowNum))
+                      z = raster::getValues(raster, row = startRow, nrow = rowNum)
     )
     
   } else {
@@ -27,3 +41,5 @@ extract_xyz_at_row <- function(raster, startRow, rowNum) {
   return(xyz)
   
 }
+
+
