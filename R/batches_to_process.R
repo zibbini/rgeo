@@ -1,3 +1,5 @@
+# Currently not in use, to be used with parallel methods.
+
 batches_to_process <- function(raster, threads) {
   
   startRow <- ceiling(seq(1, raster@nrows, length.out = threads))
