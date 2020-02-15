@@ -8,7 +8,7 @@ The test data used here is a digital terrain model (DTM) of Plymouth and the sur
 
 ### Classifying results
 
-Here the the raster was classified to at four thresholds: min, 2m, 5m and max. 
+Here the the raster was classified to four thresholds: min, 2m, 5m and max. 
 
 ``` r
 library(raster)
