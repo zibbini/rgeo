@@ -1,5 +1,9 @@
 freeRAM <- function() {
   
+  #' Memory related functions
+  #' 
+  #' @description Calculates how much RAM is available in the current R session. Output is in kB. 
+  
   require(magrittr, quietly = TRUE)
   
   osName <- Sys.info()[["sysname"]]
@@ -20,3 +24,5 @@ freeRAM <- function() {
     stop("OS not supported. See details in ?get_freeMemoryKB for more info.")
   }
 }
+
+docstring::docstring(freeRAM)
