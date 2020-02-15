@@ -27,15 +27,3 @@ enoughRAM <- function(raster) {
   
 }
 
-
-
-# Transform to check if there is enough ram available for retrieving the raster values
-# have separate values assigned to each datatype
-# Is datatype of raster equal to any of the recognised datatypes in R
-# If yes, multiply by corresponding byte size of each format, divide by 1000 for kB and then check if < 
-# available ram. If yes, proceed with normal method, if not, proceed with paralle method processing chunks at
-# a time.
-
-# Batch calculation needs to consider available ram, as well as available to each node or thread.
-# Then calculate based on this multiple. Assign number of values to compute based on this. 
-
