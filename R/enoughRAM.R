@@ -1,5 +1,16 @@
 enoughRAM <- function(raster) {
   
+  #' Memory related functions
+  #' 
+  #' @description Calculate if there is enough ram for processing the raster object in the memory assigned to the 
+  #' current R session.
+  #' 
+  #' @param raster A given raster layer. 
+  #' 
+  #' @usage enoughRAM(raster)
+  #' 
+  #' @details TRUE or FALSE are returned based on if there is enough ram for processing the raster in memory. 
+  
   require(magrittr)
   
   osName <- Sys.info()[["sysname"]]
@@ -27,3 +38,4 @@ enoughRAM <- function(raster) {
   
 }
 
+docstring::docstring(enoughRAM)
