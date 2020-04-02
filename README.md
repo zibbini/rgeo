@@ -15,18 +15,18 @@ library(raster)
 DTM <- raster("DTM.tif")
 
 # rgeo 
-microbenchmark::microbenchmark(classify(test, at = c(2,5)), times = 10L) 
+microbenchmark::microbenchmark(classify(DTM, at = c(2,5)), times = 10L) 
 
 # raster package
-microbenchmark::microbenchmark(raster::cut(test, breaks = c(-10.08, 2, 5, 126.170)), times = 10L)
+microbenchmark::microbenchmark(raster::cut(DTM, breaks = c(-10.08, 2, 5, 126.170)), times = 10L)
 ```
 
 *Unit: seconds*
 
 expr | min | lq | mean | median | uq | max | neval
 --- | --- | --- | --- | --- | --- | --- | ---
-classify(test, at = c(2, 5)) | 3.039677 | 3.054341 | 3.08061 | 3.064573 | 3.070116 | 3.269607 | 10
-raster::cut(test, breaks = c(-10.08, 2, 5, 126.17)) | 3.851293 | 7.822391 | 7.560331 | 8.01715 | 8.06603 | 8.207009 | 10
+classify(DTM, at = c(2, 5)) | 3.039677 | 3.054341 | 3.08061 | 3.064573 | 3.070116 | 3.269607 | 10
+raster::cut(DTM, breaks = c(-10.08, 2, 5, 126.17)) | 3.851293 | 7.822391 | 7.560331 | 8.01715 | 8.06603 | 8.207009 | 10
 
 ### Extracting xyz results
 
@@ -37,21 +37,21 @@ library(raster)
 DTM <- raster("DTM.tif")
 
 # rgeo 
-microbenchmark::microbenchmark(extract_xyz(test), times = 10L)
+microbenchmark::microbenchmark(extract_xyz(DTM), times = 10L)
 
 # raster package
-microbenchmark::microbenchmark(raster::rasterToPoints(test), times = 10L)
+microbenchmark::microbenchmark(raster::rasterToPoints(DTM), times = 10L)
 ```
 *Unit: seconds*
 
 expr | min | lq | mean | median | uq | max | neval
 --- | --- | --- | --- | --- | --- | --- | ---
-extract_xyz(test) | 3.976426 | 4.1043 | 4.095051 | 4.106489 | 4.110322 | 4.116398 | 10
-raster::rasterToPoints(test) | 4.927814 | 12.77142 | 12.00122 | 12.78671 | 12.79453 | 12.80327 | 10
+extract_xyz(DTM) | 3.976426 | 4.1043 | 4.095051 | 4.106489 | 4.110322 | 4.116398 | 10
+raster::rasterToPoints(DTM) | 4.927814 | 12.77142 | 12.00122 | 12.78671 | 12.79453 | 12.80327 | 10
 
 ## Summary
 
-Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to ~3x were found, with revisions remaining pure R based and not offloading any computation onto a faster C language. 
+Both results show that a substantial reduction in time taken can be found when revising current available methods. Speed-ups of up to ~3x were found, with optimisations remaining pure R based and not offloading any computation onto a faster C language. 
 
 ## Further information
 
